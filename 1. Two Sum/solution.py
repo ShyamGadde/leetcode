@@ -3,9 +3,9 @@ class Solution:
         prev_elems = {}
 
         for i, n in enumerate(nums):
-            idx = prev_elems.get(target - n)
-            if idx is not None:
-                return [idx, i]
+            diff = target - n
+            if diff in prev_elems:
+                return [prev_elems[diff], i]
             prev_elems[n] = i
 
 

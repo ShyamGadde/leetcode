@@ -7,7 +7,7 @@ class Solution:
         }
         stack = []
         for ch in s:
-            if not bracket_pair.get(ch):
+            if ch not in bracket_pair:
                 stack.append(ch)
                 continue
             if not stack or stack[-1] != bracket_pair[ch]:
