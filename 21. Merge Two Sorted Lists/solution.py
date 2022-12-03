@@ -12,7 +12,7 @@ class Solution:
             return list1
 
         sorted_list = None
-        a
+
         if list1.val < list2.val:
             sorted_list = list1
             list1 = list1.next
