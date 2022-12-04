@@ -3,5 +3,5 @@ class Solution:
         d = len(s) // 2
         return sum(ch.lower() in "aeiou" for ch in s[:d]) == sum(ch.lower() in "aeiou" for ch in s[d:])
 
-# Time complexity: O(n^2)
+# Time complexity: O(N^2)
 # Space complexity: O(1)

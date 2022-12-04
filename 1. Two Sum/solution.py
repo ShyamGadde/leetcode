@@ -15,5 +15,5 @@ Why not first create the hash table/map first and then search?
 indices of the values.  
 """
 
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(N)
+# Space complexity: O(N)

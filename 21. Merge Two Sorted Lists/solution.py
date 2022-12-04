@@ -38,3 +38,6 @@ class Solution:
             tmp.next = list2
 
         return sorted_list
+
+# Time complexity: O(N)
+# Space complexity: O(N)

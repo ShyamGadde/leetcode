@@ -16,5 +16,5 @@ class Solution:
         return not stack
 
 
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(N)
+# Space complexity: O(N)

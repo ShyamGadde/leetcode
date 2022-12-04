@@ -1,4 +1,6 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        frequency = Counter(s).most_common()
-        return "".join([ele[0] * ele[1] for ele in frequency])
+        return "".join(ch * freq for ch, freq in Counter(s).most_common())
+
+# Time complexity: O(NlogN)
+# Space complexity: O(N)
