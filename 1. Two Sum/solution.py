@@ -11,8 +11,10 @@ class Solution:
 
 """
 Why not first create the hash table/map first and then search?
->> It will consider the same element twice if the value of `n` is `target / 2`. To solve that we will need to check the 
-indices of the values.  
+>> That too is possible. But in the case where the value of 'n' is 'target / 2', if a second element with the same value does not exist it will
+point to the same index (if another element with the same value exists it will overwrite the first value of the index 
+in the hash table), and to overcome this we'll have to compare the index of the current element with the index in the 
+hash table. 
 """
 
 # Time complexity: O(N)
