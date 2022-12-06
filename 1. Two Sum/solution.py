@@ -15,8 +15,7 @@ class Solution:
         prev_elems = {}
 
         for i, n in enumerate(nums):
-            diff = target - n
-            if diff in prev_elems:
+            if (diff := target - n) in prev_elems:
                 return [prev_elems[diff], i]
             prev_elems[n] = i
         
