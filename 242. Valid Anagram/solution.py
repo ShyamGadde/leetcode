@@ -18,7 +18,7 @@ class Solution:
             count_s[s[i]] = count_s.get(s[i], 0) + 1
             count_t[t[i]] = count_t.get(t[i], 0) + 1
 
-        return all(value == count_t.get(ch, 0) for ch, value in count_s.items())
+        return count_s == count_t
 
 # Time complexity: O(S + T)
 # Space complexity: O(S + T)
