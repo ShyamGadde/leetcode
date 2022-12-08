@@ -24,5 +24,9 @@ class Solution:
             prev = curr
             curr = nxt
         return prev
+
+# Time complexity: O(N)
+# Space complexity: O(1)
+
 # @lc code=end
 
