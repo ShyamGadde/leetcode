@@ -11,8 +11,8 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         lhs, rhs = 0, len(nums) - 1
 
-        while lhs <= rhs:  # We write <= for the case where element is in the center of odd number of elements.
-            mid = lhs + (rhs - lhs) // 2  # The reason for doing this just defensive programming is case the number of very large and may cause integer overflow. 
+        while lhs <= rhs:  # We write <= for the case where only one element is left
+            mid = lhs + (rhs - lhs) // 2   # The reason for doing this is just defensive programming i.e., is case the number is very large and may cause integer overflow. (not required in Python though)
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:
