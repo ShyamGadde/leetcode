@@ -17,6 +17,15 @@ class Solution:
         return False
 # @lc code=end
 
+# Alternate solution
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        hashmap = {}
+        for num in hashmap:
+            if num in hashmap:
+                return True
+            hashmap[num] = 1
+        return False
 
 """
 Why not use dictionary?
