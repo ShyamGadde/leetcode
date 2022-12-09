@@ -15,7 +15,7 @@ class Solution:
             if nums[i] == nums[i + 1]:
                 return True
 
-# Time complexity: O(N)
+# Time complexity: O(NLogN)
 # Space complexity: O(1)
 
 # @lc code=end
