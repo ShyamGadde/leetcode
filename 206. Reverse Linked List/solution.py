@@ -16,17 +16,27 @@ from typing import *
 #         self.val = val
 #         self.next = next
 class Solution:
+    def reverseList(self, head: Optional[ListNode], prev=None) -> Optional[ListNode]:
+        if not head:
+            return prev
+            
+        nxt, head.next = head.next, prev
+        return self.reverseList(nxt, head)
+
+# Time complexity: O(N)
+# Space complexity: O(N)
+
+# @lc code=end
+
+# Iterative Approach
+class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev, curr = None, head
         while curr:
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+            curr.next, prev, curr = prev, curr, curr.next
         return prev
 
 # Time complexity: O(N)
 # Space complexity: O(1)
 
-# @lc code=end
 
