@@ -13,6 +13,33 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right)) if root else 0
+        if not root:
+            return 0
+        
+        from collections import deque
+        levels = 0
+        queue = deque([root])
+        while queue:
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                if node.left:   
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            levels += 1
+        return levels
+
+# Time complexity: O(N)
+# Space complexity: O(N)
+
 # @lc code=end
+
+# Recursive DFS
+#     def maxDepth(self, root: Optional[TreeNode]) -> int:
+#         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right)) if root else 0
+
+# Time complexity: O(N)
+# Space complexity: O(N)
+
+
 
