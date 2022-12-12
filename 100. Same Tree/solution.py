@@ -13,11 +13,11 @@
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        queue = deque([(p, q)])
-        while queue:
-            p, q = queue.popleft()
+        stack = [(p, q)]
+        while stack:
+            p, q = stack.pop()
             if p and q and p.val == q.val:
-                queue.extend([(p.left, q.left), (p.right, q.right)])
+                stack.extend([(p.left, q.left), (p.right, q.right)])
             elif p or q:
                 return False
         return True
