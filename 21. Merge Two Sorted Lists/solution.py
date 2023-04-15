@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=21 lang=python3
+#
+# [21] Merge Two Sorted Lists
+#
+
+# @lc code=start
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -5,39 +12,33 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1 or not list2:
+            return list1 or list2
 
-        if not list1:
-            return list2
-        if not list2:
-            return list1
+        ptr1, ptr2 = list1, list2
 
-        sorted_list = None
-
-        if list1.val < list2.val:
-            sorted_list = list1
-            list1 = list1.next
+        if ptr1.val < ptr2.val:
+            merged_list = ptr1
+            ptr1 = ptr1.next
         else:
-            sorted_list = list2
-            list2 = list2.next
+            merged_list = ptr2
+            ptr2 = ptr2.next
 
-        tmp = sorted_list
+        tail = merged_list
 
-        while list1 and list2:
-            if list1.val < list2.val:
-                tmp.next = list1
-                list1 = list1.next
+        while ptr1 and ptr2:
+            if ptr1.val < ptr2.val:
+                tail.next = ptr1
+                ptr1 = ptr1.next
             else:
-                tmp.next = list2
-                list2 = list2.next
+                tail.next = ptr2
+                ptr2 = ptr2.next
 
-            tmp = tmp.next
+            tail = tail.next
 
-        if list1:
-            tmp.next = list1
-        else:
-            tmp.next = list2
+        tail.next = ptr1 or ptr2
+        
+        return merged_list
+        
+# @lc code=end
 
-        return sorted_list
-
-# Time complexity: O(N)
-# Space complexity: O(N)
