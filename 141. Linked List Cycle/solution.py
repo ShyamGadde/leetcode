@@ -13,29 +13,23 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        slow = fast = head
+        if not head:
+            return False
+
+        slow, fast = head, head.next
 
         while fast and fast.next:
+            if slow == fast:
+                return True
+
             slow = slow.next
             fast = fast.next.next
-            if slow is fast:
-                return True
+
         return False
+
 
 # Time complexity: O(N)
 # Space complexity: O(1)
 
 # @lc code=end
 
-class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        visited_nodes = set()
-        while head:
-            if head in visited_nodes:
-                return True
-            visited_nodes.add(head)
-            head = head.next
-        return False
-
-# Time complexity: O(N)
-# Space complexity: O(N)

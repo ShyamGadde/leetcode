@@ -13,8 +13,6 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        if not subRoot:
-            return True
         if not root:
             return False
         
@@ -25,12 +23,9 @@ class Solution:
 
     
     def same_tree(self, p, q):
-        if p or q:
-            return self.same_tree(p.left, q.left) and self.same_tree(p.right, q.right) if p and q and p.val == q.val else False
-        return True
-
-# Time complexity: (MN)
-# Space complexity: (M + N)
+        if p and q:
+            return p.val == q.val and self.same_tree(p.left, q.left) and self.same_tree(p.right, q.right)
+        return p is q
         
 # @lc code=end
 

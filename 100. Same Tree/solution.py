@@ -13,46 +13,13 @@
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        stack = [(p, q)]
-        while stack:
-            p, q = stack.pop()
+        queue = deque([(p, q)])
+        while queue:
+            p, q = queue.popleft()
             if p and q and p.val == q.val:
-                stack.extend([(p.left, q.left), (p.right, q.right)])
+                queue += (p.left, q.left), (p.right, q.right)
             elif p or q:
                 return False
         return True
-
-# Time complexity: O(N)
-# Space complexity: O(N)
         
 # @lc code=end
-
-# Using BFS
-# class Solution:
-#     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-#         queue = deque([(p, q)])
-#         while queue:
-#             p, q = queue.popleft()
-#             if p and q and p.val == q.val:
-#                 queue.extend([(p.left, q.left), (p.right, q.right)])
-#             elif p or q:
-#                 return False
-#         return True
-
-# Time complexity: O(N)
-# Space complexity: O(N)
-
-
-
-# Recursive DFS
-# class Solution:
-#     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-#         if p or q:
-#             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right) \
-#                 if p and q and p.val == q.val else False
-#         else:
-#             return True
-
-
-# Time complexity: O(N)
-# Space complexity: O(N)
