@@ -18,6 +18,3 @@ class Solution:
             n >>= 1
         return ans
 # @lc code=end
-
-Solution().reverseBits(43261596)
-
