@@ -4,10 +4,10 @@
 # [49] Group Anagrams
 #
 
+
 # @lc code=start
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        from collections import defaultdict
         ans = defaultdict(list)
 
         for s in strs:
@@ -16,5 +16,6 @@ class Solution:
                 count[ord(c) - 97] += 1
             ans[tuple(count)].append(s)
         return ans.values()
-# @lc code=end
 
+
+# @lc code=end

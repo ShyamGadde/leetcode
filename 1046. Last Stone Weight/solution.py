@@ -4,6 +4,7 @@
 # [1046] Last Stone Weight
 #
 
+
 # @lc code=start
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
@@ -16,7 +17,8 @@ class Solution:
             x = heapq.heappop(stones)
             if x != y:
                 heapq.heappush(stones, y - x)
-        
-        return -stones[0] if stones else 0
-# @lc code=end
 
+        return -stones[0] if stones else 0
+
+
+# @lc code=end

@@ -4,6 +4,7 @@
 # [543] Diameter of Binary Tree
 #
 
+
 # @lc code=start
 # Definition for a binary tree node.
 # class TreeNode:
@@ -18,11 +19,15 @@ class Solution:
         def dfs(node):
             if not node:
                 return -1
+
+            # Calculate height of left and right node
             left, right = dfs(node.left), dfs(node.right)
             self.diameter = max(self.diameter, left + right + 2)
             return max(left, right) + 1
-        
-        dfs(root)
-        return self.diameter
-# @lc code=end
 
+        dfs(root)
+
+        return self.diameter
+
+
+# @lc code=end

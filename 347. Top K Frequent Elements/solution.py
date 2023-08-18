@@ -8,19 +8,18 @@
 # @lc code=start
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        frequency = collections.defaultdict(list)
-        max_count = 0
+        freq = collections.defaultdict(list)
+
         for num, count in collections.Counter(nums).items():
-            frequency[count].append(num)
-            max_count = max(max_count, count)
+            freq[count].append(num)
 
         result = []
-        for times in range(max_count, 0, -1):
-            result.extend(frequency[times])
+        for count in range(max(freq.keys()), 0, -1):
+            result.extend(freq[count])
             if len(result) >= k:
-                break
+                return result[:k]
 
-        return result if len(result) == k else result[:k]
+        return result[:k]
 
 
 # @lc code=end

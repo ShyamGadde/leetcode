@@ -4,6 +4,7 @@
 # [268] Missing Number
 #
 
+
 # @lc code=start
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -11,5 +12,6 @@ class Solution:
         for i, num in enumerate(nums):
             missing_number ^= i ^ num
         return missing_number
-# @lc code=end
 
+
+# @lc code=end
