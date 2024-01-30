@@ -11,30 +11,22 @@ class Solution(object):
         :type tokens: List[str]
         :rtype: int
         """
-        self.operators = ["+", "-", "*", "/"]
-        self.stack = []
+        operators = {"+", "-", "*", "/"}
+        stack = []
+        operator_func = {
+            "+": lambda y, x: x + y,
+            "-": lambda y, x: x - y,
+            "*": lambda y, x: x * y,
+            "/": lambda y, x: int(x / y),
+        }
 
         for token in tokens:
-            if token in self.operators:
-                self.evaluate(token)
+            if token in operators:
+                stack.append(operator_func[token](stack.pop(), stack.pop()))
             else:
-                self.stack.append(int(token))
+                stack.append(int(token))
 
-        return self.stack.pop()
-
-    def evaluate(self, operator):
-        num2 = self.stack.pop()
-        num1 = self.stack.pop()
-        if operator == "+":
-            self.stack.append(num1 + num2)
-        elif operator == "-":
-            self.stack.append(num1 - num2)
-        elif operator == "*":
-            self.stack.append(num1 * num2)
-        elif operator == "/":
-            self.stack.append(int(num1 / num2))
-        else:
-            raise ValueError("Invalid operator")
+        return stack.pop()
 
 
 # @lc code=end
