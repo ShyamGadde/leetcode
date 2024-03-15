@@ -9,19 +9,19 @@
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         length = len(nums)
-        out = [1] * length
+        res = [1] * length
 
-        prefix = 1
+        prefix_prod = 1
         for i in range(length):
-            out[i] *= prefix
-            prefix *= nums[i]
+            res[i] = prefix_prod
+            prefix_prod *= nums[i]
 
-        postfix = 1
+        postfix_prod = 1
         for i in range(length):
-            out[~i] *= postfix
-            postfix *= nums[~i]
+            res[~i] *= postfix_prod
+            postfix_prod *= nums[~i]
 
-        return out
+        return res
 
 
 # @lc code=end
