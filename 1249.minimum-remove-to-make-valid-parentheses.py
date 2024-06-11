@@ -1,40 +1,59 @@
-from string import *
-from re import *
-from datetime import *
-from collections import *
-from heapq import *
-from bisect import *
-from copy import *
-from math import *
-from random import *
-from statistics import *
-from itertools import *
-from functools import *
-from operator import *
-from io import *
-from sys import *
-from json import *
-from builtins import *
-import string
-import re
-import datetime
-import collections
-import heapq
 import bisect
+import collections
 import copy
-import math
-import random
-import statistics
-import itertools
+import datetime
 import functools
-import operator
+import heapq
 import io
-import sys
+import itertools
 import json
+import math
+import operator
+import random
+import re
+import statistics
+import string
+import sys
+from bisect import *
+from builtins import *
+from collections import *
+from copy import *
+from datetime import *
+from functools import *
+from heapq import *
+from io import *
+from itertools import *
+from json import *
+from math import *
+from operator import *
+from random import *
+from re import *
+from statistics import *
+from string import *
+from sys import *
 from typing import *
+
 
 # @leet start
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        
+        s = [*s]
+        stack = []
+
+        for i in range(len(s)):
+            if s[i] == "(":
+                stack.append(i)
+            elif s[i] == ")":
+                if stack:
+                    stack.pop()
+                else:
+                    s[i] = ""
+
+        while stack:
+            s[stack.pop()] = ""
+
+        return "".join(s)
+
+
 # @leet end
+
