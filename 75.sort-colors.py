@@ -40,15 +40,22 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        freq = Counter(nums)
-
+        left, right = 0, len(nums) - 1
         i = 0
-        for color in range(3):
-            while freq[color]:
-                nums[i] = color
-                freq[color] -= 1
-                i += 1
+
+        def swap(nums, x, y):
+            nums[x], nums[y] = nums[y], nums[x]
+
+        while i <= right:
+            if nums[i] == 0:
+                swap(nums, i, left)
+                left += 1
+            elif nums[i] == 2:
+                swap(nums, i, right)
+                right -= 1
+                i -= 1  # Because we don't the pointer to move forward in this case
+
+            i += 1
 
 
 # @leet end
-
