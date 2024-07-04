@@ -11,23 +11,23 @@ class ListNode:
 
 class Solution:
     def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        res = ListNode()
-        tmp = res
-
         head = head.next
+        start = head
 
-        while head.next:
-            if head.val == 0:
-                tmp.next = ListNode()
-                tmp = tmp.next
+        while start:
+            sum = 0
+            end = start
 
-                head = head.next
-                continue
+            while end.val != 0:
+                sum += end.val
+                end = end.next
 
-            tmp.val += head.val
-            head = head.next
+            start.val = sum
+            start.next = end.next
 
-        return res
+            start = start.next
+
+        return head
 
 
 # @leet end
