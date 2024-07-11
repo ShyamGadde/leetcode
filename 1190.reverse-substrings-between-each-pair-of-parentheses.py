@@ -1,19 +1,29 @@
 # @leet start
 class Solution:
     def reverseParentheses(self, s: str) -> str:
-        stack: list[str] = []
+        pair_idx = {}
+        stack = []
 
-        for c in s:
-            if c == ")":
-                tmp: list[str] = []
-                while stack[-1] != "(":
-                    tmp.append(stack.pop())
-                stack.pop()
-                stack += tmp
+        for i in range(len(s)):
+            if s[i] == "(":
+                stack.append(i)
+            elif s[i] == ")":
+                j = stack.pop()
+                pair_idx[i] = j
+                pair_idx[j] = i
+
+        res = []
+        i, direction = 0, 1
+
+        while i < len(s):
+            if s[i] in "()":
+                i = pair_idx[i]
+                direction = -direction
             else:
-                stack.append(c)
+                res.append(s[i])
+            i += direction
 
-        return "".join(stack)
+        return "".join(res)
 
 
 # @leet end
